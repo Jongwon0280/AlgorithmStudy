@@ -27,7 +27,7 @@ def union(a,b):
     if ax<bx :
         parent[bx]=ax
     else:
-        parernt[ax]=bx
+        parent[ax]=bx
 
 heap = []
 for i in range(n):
@@ -49,17 +49,11 @@ for i in range(n):
             heappush(heap,[s[j],i,j])
             
            
-            
-    
-    
-
-    
-
 used = 0
 
 cost=0
 
-while used != n-1:
+while heap:
     pnode=heappop(heap)
     pa = find(pnode[1])
     pb = find(pnode[2])
@@ -68,7 +62,11 @@ while used != n-1:
         used+=1
         cost+=pnode[0]
 
-print(sums-cost)
+if used == n-1 :
+    
+    print(sums-cost)
+else :
+    print(-1)
         
         
     
